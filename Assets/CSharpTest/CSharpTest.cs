@@ -9,6 +9,9 @@ namespace CShapTest
         TestObject to1;
         TestObject to2;
 
+        Dictionary<int, List<int>> listDic = new Dictionary<int, List<int>>();
+        Dictionary<int, int> intDic = new Dictionary<int, int>();
+
         // Start is called before the first frame update
         void Start()
         {
@@ -33,7 +36,17 @@ namespace CShapTest
             Test(to1);
             Test(to2);
 
-            // 주석 테스트
+            List<int> testList = new List<int>();
+            listDic.Add(0, testList);
+            Debug.Log($"List Count : {listDic[0].Count}");
+            testList.Add(0);
+            testList.Add(0);
+            testList.Add(0);
+            Debug.Log($"List Count : {listDic[0].Count}");
+
+            int testInt = 0;
+            intDic.Add(0, testInt);
+
         }
 
         // Update is called once per frame
