@@ -46,7 +46,13 @@ namespace CShapTest
 
             int testInt = 0;
             intDic.Add(0, testInt);
+            Debug.Log($"Int 값 : {intDic[0]}");
 
+            testInt = 10;
+            Debug.Log($"Int 값 : {intDic[0]}");
+
+            intDic[0] = 100;
+            Debug.Log($"testInt : {testInt} / DicInt : {intDic[0]}");
         }
 
         // Update is called once per frame
