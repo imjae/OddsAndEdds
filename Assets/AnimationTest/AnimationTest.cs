@@ -8,7 +8,7 @@ public class AnimationTest : MonoBehaviour
 
     private void Start()
     {
-        animator.SetInteger("intTrigger", -1);
+        // animator.SetInteger("intTrigger", -1);
     }
 
     public void OnClickAnim1Button()
