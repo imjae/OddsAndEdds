@@ -5,10 +5,25 @@ using UnityEngine;
 public class AnimationTest : MonoBehaviour
 {
     public Animator animator;
+    public Animator textAnimator;
 
     private void Start()
     {
         // animator.SetInteger("intTrigger", -1);
+    }
+
+    public void OnClickTextMoveButton()
+    {
+        textAnimator.SetTrigger("move");
+    }
+    public void OnClickTextColorChangeButton()
+    {
+        textAnimator.SetTrigger("change");
+    }
+    public void OnClickMixButton()
+    {
+        textAnimator.SetTrigger("move");
+        textAnimator.SetTrigger("change");
     }
 
     public void OnClickAnim1Button()
@@ -26,6 +41,16 @@ public class AnimationTest : MonoBehaviour
         // animator.SetInteger("intTrigger", 2);
         // animator.SetInteger("intTrigger", -1);
     }
+
+    public void OnClickChangeCOlorButton()
+    {
+        animator.SetTrigger("changeColor");
+        // animator.ResetTrigger("changeColor");
+        animator.SetTrigger("anim1");
+        // animator.SetInteger("intTrigger", 2);
+        // animator.SetInteger("intTrigger", -1);
+    }
+
     public void OnClickIdleButton()
     {
         animator.SetTrigger("Idle");
