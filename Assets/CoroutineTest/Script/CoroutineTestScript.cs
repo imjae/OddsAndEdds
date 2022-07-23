@@ -7,6 +7,7 @@ namespace CoroutineTest
     public class CoroutineTestScript : MonoBehaviour
     {
         public Coroutine testCoroutine;
+        public Coroutine testCoroutine2;
         // Start is called before the first frame update
         void Start()
         {
@@ -50,6 +51,18 @@ namespace CoroutineTest
             StopCoroutine(testCoroutine);
         }
 
+        public IEnumerator FullRoutine()
+        {
+            testCoroutine2 = StartCoroutine(CountNumber());
+
+            yield return WaitForSeconds(7f);
+
+            Debug.Log($"스탑 코루틴 명령!");
+            yield return WaitForSeconds(1f);
+            Debug.Log($"스탑 코루틴 실행!");
+            StopCoroutine(testCoroutine2);
+        }
+
         public void OnClickCoroutineStart()
         {
             Debug.Log($"코루틴 실행!");
@@ -58,6 +71,11 @@ namespace CoroutineTest
         public void OnClickCoroutineStop()
         {
             StartCoroutine(StopCountNumber());
+        }
+
+        public void OnClickCoroutineFull()
+        {
+            StartCoroutine(FullRoutine());
         }
     }
 }
