@@ -21,20 +21,43 @@ namespace CoroutineTest
 
         public IEnumerator CountNumber()
         {
-            for (int i = 1; i <= 10; i++)
+            while (true)
             {
-                yield return new WaitForSeconds(3f);
-                Debug.Log(i);
+                for (int i = 1; i <= 10; i++)
+                {
+                    Debug.Log(i);
+                    yield return WaitForSeconds(3f, true);
+                }
             }
+        }
+
+        public IEnumerator WaitForSeconds(float seconds, bool ignoreSkipResult = false)
+        {
+            float t = 0.0f;
+
+            while (t < seconds)
+            {
+                t += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        public IEnumerator StopCountNumber()
+        {
+            Debug.Log($"스탑 코루틴 명령!");
+            yield return new WaitForSeconds(1f);
+            Debug.Log($"스탑 코루틴 실행!");
+            StopCoroutine(testCoroutine);
         }
 
         public void OnClickCoroutineStart()
         {
+            Debug.Log($"코루틴 실행!");
             testCoroutine = StartCoroutine(CountNumber());
         }
         public void OnClickCoroutineStop()
         {
-            StopCoroutine(testCoroutine);
+            StartCoroutine(StopCountNumber());
         }
     }
 }
