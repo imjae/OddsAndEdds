@@ -35,4 +35,11 @@ public class AnimatorLayerTestScript : MonoBehaviour
     {
         animator.enabled = !animator.enabled;
     }
+
+    public void OnResetClick()
+    {
+        animator.ResetTrigger("cube");
+        animator.ResetTrigger("sphere");
+        animator.ResetTrigger("capsule");
+    }
 }
