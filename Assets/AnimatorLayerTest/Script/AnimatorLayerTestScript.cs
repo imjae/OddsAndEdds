@@ -13,18 +13,21 @@ public class AnimatorLayerTestScript : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OnButton1Click()
     {
         animator.SetTrigger("sphere");
+        animator.SetTrigger("cube");
+        // animator.Play("sphere");
+        // animator.Play("cube");
     }
     public void OnButton2Click()
     {
