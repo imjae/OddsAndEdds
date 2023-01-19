@@ -1,9 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimatorLayerTestScript : MonoBehaviour
 {
+    private enum TestEnum
+    {
+        a = 0,
+        b = 2,
+        c = 1
+    }
+
     // Start is called before the first frame update
     public GameObject g1;
     public GameObject g2;
@@ -13,7 +21,11 @@ public class AnimatorLayerTestScript : MonoBehaviour
 
     void Start()
     {
-
+        string[] ar = Enum.GetNames(typeof(TestEnum));
+        foreach (var item in ar)
+        {
+            Debug.Log($"{item}");
+        }
     }
 
     // Update is called once per frame
