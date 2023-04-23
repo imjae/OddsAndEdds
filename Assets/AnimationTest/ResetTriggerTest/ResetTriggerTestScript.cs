@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class ResetTriggerTestScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Animator animator;
+
+    public void OnRedButtonClick()
     {
-        
+        animator.SetTrigger("horizontal");
+    }
+    public void OnBluesButtonClick()
+    {
+        animator.SetTrigger("vertical");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnResetButtonClick()
     {
-        
+        for (int i = 0; i < animator.parameters.Length; i++)
+        {
+            var param = animator.parameters[i];
+            if (param.type == AnimatorControllerParameterType.Trigger)
+            {
+                animator.ResetTrigger(param.name);
+            }
+        }
     }
 }
